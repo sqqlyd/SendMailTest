@@ -1,10 +1,12 @@
 package org.wise4.mail;
+
 import javax.mail.*;
 import javax.mail.internet.*;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 import javax.mail.Message.RecipientType;
 
@@ -79,7 +81,13 @@ public class Sendmail {
 	public static void main(String[] args) {
 		final Properties props = new Properties();
 		try {
-			props.load(new FileInputStream("src/main/resources/mail.properties"));
+
+			InputStream inputStream2 = Thread.currentThread().getContextClassLoader().getResourceAsStream("mail.properties");
+			// props.load(inputStream2);
+			// props.load(new FileInputStream("src/main/resources/mail.properties"));
+			// props.load(new FileInputStream("/Volumes/machd/Users/soukeisen/Documents/projects/WisdomPrjs/SendMailTest/src/main/resources/sample_mail.properties"));
+			// props.load(new FileInputStream("C:/projects/SendMailTest/src/main/resources/sample_mail.properties"));
+			props.load(new FileInputStream("/usr/local/src/SendMailTest/src/main/resources/sample_mail.properties"));
 		} catch (FileNotFoundException e1) {
 			System.err.println("Properties file not found");
 			e1.printStackTrace();
