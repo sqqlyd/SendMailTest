@@ -40,7 +40,7 @@ public class SendmailTest
     {
 		final Properties props = new Properties();
 		try {
-			props.load(new FileInputStream("src/main/resources/mail.properties"));
+			props.load(new FileInputStream("/usr/local/src/SendMailTest/src/main/resources/sample_mail.properties"));
 		} catch (FileNotFoundException e1) {
 			System.err.println("Properties file not found");
 			e1.printStackTrace();
